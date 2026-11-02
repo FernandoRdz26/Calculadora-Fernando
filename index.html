@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/191135b3a8.js" crossorigin="anonymous"></script>
+    <title>Calculadora Web</title>
+
+    <style>
+        /* EL "*" sirve como un selector universal, aplicandolo a todos, en este caso lo use para el border-box que hace que el padding se meta para dentro en vez de para afuera */
+        *{box-sizing: border-box; font-family:Georgia, 'Times New Roman', Times, serif;}
+        header{text-align: center; background-color: rgb(187, 93, 93);}
+        .titulo{display: flex; align-items: center; justify-content: center; gap: 10px;}
+        body{margin: 0; overflow-x: hidden; padding: 0; background-color:rgb(121, 173, 121);}
+        .cuerpo{display: flex; gap: 20px; justify-content: center; align-items: center; position: relative; min-height: 80vh;}
+        .numeros{width: 800px; height: 100px; background-color: rgb(211, 115, 115); border-radius: 20px; padding: 10px; 
+                display: flex; justify-content: center; align-items: center;}
+        .operaciones{width: 300px; height: 700px; background-color: rgb(211, 115, 115); border-radius: 20px; position: absolute; right: 10px; padding: 10px; text-align: center;}
+        .iconos{display: flex; justify-content: center; margin-top: 100px; gap: 30px;}
+        #suma{transition: 0.5s ease;} #suma:hover{transform: scale(1.6);}
+        #resta{transition: 0.5s ease;} #resta:hover{transform: scale(1.6);}
+        #multiplicacion{transition: 0.5s ease;} #multiplicacion:hover{transform: scale(1.6);}
+        #division{transition: 0.5s ease;} #division:hover{transform: scale(1.6);}
+        input{width: 110px; transition: 0.5s ease; background:none; border: none; border-bottom: 2px solid black; border-radius: 5px;}
+        input:hover{transform: scale(1.06); background-color: rgb(121, 173, 121);}
+        button{background: none; border: none;}
+    </style>
+
+</head>
+<body>
+
+    <header>
+        <hr color="black ">
+            <div class="titulo">
+                <h1>Calculadora Web</h1> 
+                <i class="fa-solid fa-calculator"></i>
+            </div>
+        <hr color="black">
+    </header>
+    <div class="cuerpo">
+
+        <div class="numeros">
+            <form action="">
+                <label for="cantidad1">Poner primera cantidad:</label>
+                <input type="number" name="cantidad1" id="cantidad1">
+                <label for="cantidad2">Poner segunda cantidad:</label>
+                <input type="number" name="cantidad2" id="cantidad2">
+                <label for="resultado">Resultado:</label>
+                <input type="text" name="resultado" id="resultado" readonly>
+            </form>
+        </div>
+
+
+        <div class="operaciones">
+            <h2>Calculadora Web</h2>
+            <p>Instrucciones: Ponga dos cantidades y posteriormente elija que operacion quiere realizar</p>
+            <div class="iconos">
+                <button type="button" id="suma" onclick="suma()"> <i class="fa-solid fa-plus" id="suma"></i></button>
+                <button type="button" id="resta" onclick="resta()"> <i class="fa-solid fa-minus" id="resta"></i></button>
+                <button type="button" id="multiplicacion" onclick="multiplicacion()"> <i class="fa-solid fa-x" id="multiplicacion"></i></button>
+                <button type="button" id="division" onclick="division()"> <i class="fa-solid fa-divide" id="division"></i></button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        console.log('Consola de desarrollador')
+
+        let cantidad1 = document.getElementById("cantidad1");
+        let cantidad2 = document.getElementById("cantidad2");
+
+
+        function suma(){
+            event.preventDefault(); /* Cancela los eventos */
+            let sumaresultado = cantidad1.value*1 + cantidad2.value*1;
+
+            document.getElementById('resultado').value = sumaresultado
+            }
+        
+        function resta(){
+            event.preventDefault();
+            let restaresultado = cantidad1.value*1 - cantidad2.value*1;
+
+            document.getElementById('resultado').value = restaresultado
+        }
+        
+        function multiplicacion(){
+            event.preventDefault();
+            let multiplicacionresultado = cantidad1.value*1 * cantidad2.value*1;
+
+            document.getElementById('resultado').value = multiplicacionresultado
+        }
+
+        function division(){
+            event.preventDefault();
+            let divisionresultado = cantidad1.value*1 / cantidad2.value*1;
+
+            document.getElementById('resultado').value = divisionresultado
+        }
+
+    </script>
+    
+</body>
+</html>
